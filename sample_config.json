@@ -1,0 +1,16 @@
+{
+  "input_file": "data/input_fixed_width.txt",
+  "output_file": "data/output.csv",
+  "encoding": "utf-8",
+  "schema": [
+    { "name": "account_id", "width": 10 },
+    { "name": "name", "width": 20 },
+    { "name": "country", "width": 3 },
+    { "name": "balance", "width": 12 }
+  ],
+  "delimiter": ",",
+  "quotechar": "\"",
+  "lineterminator": "\n",
+  "include_header": true,
+  "strip_values": true
+}
