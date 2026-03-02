@@ -1,0 +1,27 @@
+{
+  "input_file": "data/input_fixed_width.txt",
+  "output_file": "data/output.csv",
+  "header_output_file": "data/header.csv",
+  "encoding": "utf-8",
+  "header_schemas": [
+    [
+      { "name": "file_date", "width": 8 },
+      { "name": "file_type", "width": 4 }
+    ],
+    [
+      { "name": "source_system", "width": 10 },
+      { "name": "batch_id", "width": 6 }
+    ]
+  ],
+  "schema": [
+    { "name": "account_id", "width": 10 },
+    { "name": "name", "width": 20 },
+    { "name": "country", "width": 3 },
+    { "name": "balance", "width": 12 }
+  ],
+  "delimiter": ",",
+  "quotechar": "\"",
+  "lineterminator": "\n",
+  "include_header": true,
+  "strip_values": true
+}
