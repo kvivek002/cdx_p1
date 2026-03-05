@@ -2,6 +2,7 @@
   "input_file": "data/input_fixed_width.txt",
   "output_file": "data/output.csv",
   "encoding": "utf-8",
+  "progress_every": 1,
   "input_schema": {
     "header_lines": [
       [
@@ -17,15 +18,33 @@
       { "name": "account_id", "width": 10 },
       { "name": "name", "width": 20 },
       { "name": "country", "width": 3 },
-      { "name": "balance", "width": 12 },
+      { "name": "raw_amount", "width": 13 },
       { "name": "internal_flag", "width": 1 }
     ]
   },
   "output_schema": [
     { "name": "account_id", "source": "data.account_id" },
-    { "name": "name", "source": "data.name" },
-    { "name": "country", "source": "data.country" },
-    { "name": "balance", "source": "data.balance" },
+    {
+      "name": "name",
+      "source": "data.name",
+      "transforms": [
+        { "type": "trim" }
+      ]
+    },
+    {
+      "name": "country",
+      "source": "data.country",
+      "transforms": [
+        { "type": "upper" }
+      ]
+    },
+    {
+      "name": "amount",
+      "source": "data.raw_amount",
+      "transforms": [
+        { "type": "implied_decimal", "scale": 2 }
+      ]
+    },
     { "name": "file_date", "source": "header.file_date" },
     { "name": "batch_id", "source": "header.batch_id" }
   ],
